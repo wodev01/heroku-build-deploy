@@ -4,10 +4,13 @@
   "description": "A sample Node.js app using Express 4",
   "main": "index.js",
   "scripts": {
-    "start": "node dist/index.js"
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm start:dev",
+    "start:prod":"node dist/index.js",
+    "start:dev":"node index.js"
   },
   "dependencies": {
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "if-env": "^1.0.0"
   },
   "engines": {
     "node": "4.0.0"
